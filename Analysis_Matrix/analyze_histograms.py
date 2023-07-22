@@ -1,5 +1,8 @@
+#TODO: modify code to compute computation errors
+
+#This code was used with a python virtual environment (to use up-to-date packages as matplotlib and seaborn)
 import matplotlib
-matplotlib.use('Agg') #if used from a window computer
+matplotlib.use('Agg') #if used from a windows computer
 import pandas as pd
 import matplotlib.pyplot as plt
 from math import sqrt
@@ -11,6 +14,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.colors import Normalize
 import numpy as np
 
+#Labels for plots
 distribution_label = {"2D_m_Z1-m_Z2" : "", 
                         "pT_ZZ" : "$p_T^{ZZ} (GeV)$", 
                          "m_ZZ" : "$m_{ZZ} (GeV)$", 
@@ -25,6 +29,9 @@ label_2D = {"2D_m_Z1-m_Z2" : ["$m_{Z1} (GeV)$", "$m_{Z2} (GeV)$"],
             "2D_m_Z1-m_ZZ" : ["$m_{Z1} (GeV)$", "$m_{ZZ} (GeV)$"]}
 
 def merge_bin_2D_hist(df):
+    """
+    For a 2D histograms, merge bins of a dataframe df two-by-two to smoothen the plot
+    """
     df = df.reset_index(drop=True)
     # print(df)
     merged_df = pd.DataFrame(columns = ["left-edge1", "left-edge2", "k_factor"])
@@ -52,6 +59,9 @@ def merge_bin_2D_hist(df):
     return merged_df
 
 def merge_bin_1D_hist(df, nb_bins): #suppose the total number of bins is a multiple of nb_bins
+    """
+    merge the bins of a 1D dataframe, taking nb_bins into one single bins, to smoothen the histograms
+    """
     merged_df = pd.DataFrame(columns = ["left-edge", "right-edge", "scale-central" , "central-error", "scale-min", "min-error", "scale-max", "max-error", "rel-down", "rel-up"])
     # print(df.columns)
     df.columns = ["left-edge", "right-edge", "scale-central" , "central-error", "scale-min", "min-error", "scale-max", "max-error", "rel-down", "rel-up"]
@@ -87,6 +97,9 @@ def merge_bin_1D_hist(df, nb_bins): #suppose the total number of bins is a multi
     return merged_df
 
 def merge_process(df_list, hist_2D): #FIXME: merge computation errors
+    """
+    Used to merge pp4e and pp2e2l processes
+    """
     df = df_list[0]
     df_2 = df_list[1]
     if hist_2D:
@@ -109,6 +122,9 @@ def merge_process(df_list, hist_2D): #FIXME: merge computation errors
 
 
 def compute_k_factor(path_hists, order_LO, order_NLO, distribution, hist_2D = False, nb_bins = 1):
+    """
+    From two different order histograms, compute k-factors
+    """
 
     df_LO_list=[]
     df_NLO_list=[]
@@ -161,7 +177,10 @@ def compute_k_factor(path_hists, order_LO, order_NLO, distribution, hist_2D = Fa
 
     return df
 
-def plot_k_factor(df, distribution, process, order_LO, order_NLO, run_number="00", plot_uncertainties=True, ylims=0): 
+def plot_k_factor(df, distribution, process, order_LO, order_NLO, run_number="00", plot_uncertainties=True, ylims=0):
+    """
+    produce k-factors plots for 1D hist
+    """ 
     df_cut = df[(df["scale-central_LO"] > 0) & (df["scale-central_NLO"] > 0)]
     df_cut.plot(x= "left-edge", y="k_factor", color = 'red')
     # print(df_cut)
@@ -184,6 +203,9 @@ def plot_k_factor(df, distribution, process, order_LO, order_NLO, run_number="00
     plt.close()
 
 def plot_uncertainties_NLO(df, distribution, process, run_number="00"):
+    """
+    not used anymore
+    """
     df.plot(x= "left-edge", y="rel-up")
     # print(df_cut)
     plt.xlabel(distribution_label[distribution])
@@ -199,6 +221,9 @@ def plot_uncertainties_NLO(df, distribution, process, run_number="00"):
 
 
 def k_factor_2D_plots(df, distribution, process, order_NLO, run_number="00", view_3D = False, merged = False):
+    """
+    produce k-factors plots for 2D hist
+    """
     x_range = [40,500]
     y_range = [20,500]
     df_wide = df[(df['left-edge1'].between(*x_range)) & (df['left-edge2'].between(*y_range))]
@@ -240,6 +265,9 @@ def k_factor_2D_plots(df, distribution, process, order_NLO, run_number="00", vie
     plt.close()
 
 def plot_cross_sections(df, distribution, process, order_LO, order_NLO, run_number, lim=0):
+    """
+    produces cross-sections plots for the two orders 
+    """
     ax = df.plot(x= "left-edge", y=["scale-central_LO","scale-central_NLO"])
     # print(order_LO[1:])
     ax.legend([order_LO[1:], order_NLO[1:]])
@@ -253,6 +281,7 @@ def plot_cross_sections(df, distribution, process, order_LO, order_NLO, run_numb
     plt.close()
 
 if __name__ == "__main__" :
+    #choose process
     process = "ppeeexex04"
     # process = "ppemexmx04"
     # process = "4lep"
@@ -260,6 +289,8 @@ if __name__ == "__main__" :
         process_list = ["ppeeexex04", "ppemexmx04"]
     else:
         process_list=[process]
+
+    #choose run numbers and run order
     # run_number = ["25", "14"]
     # run_number = ["35", "24"]
     run_number = ["32"]
@@ -269,6 +300,7 @@ if __name__ == "__main__" :
     for i in range(len(process_list)):
         path_hists.append(path_Matrix + "/run/%s_MATRIX/result/run_%s/%s-run" % (process_list[i], run_number[i], run_order))
 
+    #choose orders for the processes
     # order_NLO = "_NLO_QCD"
     # order_NLO = "_NLO_QCD+NLO_EW"
     # order_LO = "_LO"
@@ -279,6 +311,7 @@ if __name__ == "__main__" :
     # order_NLO = "_NNLO_QCD"
     # order_LO = "_NLO_QCD"
 
+    #choose which kind of distributions to plot (only the basic ones are coded (for the labels))
     distributions = ["m_ZZ", "absy_ZZ"]
     # distributions = ["m_ZZ"]
     # distributions = ["pT_ZZ"]
@@ -289,6 +322,8 @@ if __name__ == "__main__" :
 
     # print(df)
     # plot_uncertainties_NLO(df, distribution, process, run_number)
+
+    #Used for 2D plots
     # distributions = ["2D_m_Z1-m_Z2", "2D_absy_ZZ-m_ZZ", "2D_m_Z1-m_ZZ"]
     # distributions = ["2D_m_Z1-m_Z2", "2D_m_Z1-m_ZZ"]
     # for distribution in distributions:
