@@ -1,0 +1,17 @@
+Start MATRIX by typing
+
+./matrix
+
+Follow on-screen instructions and select process in interactive terminal.
+Once the process is set up, go to the respective process folder in the 
+'run' directory (as written on the screen) and type 
+
+./bin/run_process
+
+enter the run shell, from where you can start LO, NLO and NNLO computations.
+
+
+For more details have a look at our manual in:
+
+manual/matrix_manual.pdf
+

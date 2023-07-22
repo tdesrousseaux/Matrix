@@ -1,0 +1,17 @@
+
+                    /--------------------------------------------------\
+                    |               Pre-run result for:                |
+                    |      p p --> e^- e^- e^+ e^+   @ 13 TeV LHC      |
+                    \--------------------------------------------------/
+
+                #--------\
+                # LO-run |
+                #--------/
+<MATRIX-RESULT> PDF: NNPDF31_lo_as_0118
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> -------------------------------------------------------------
+<MATRIX-RESULT> LO:2.095e+31 fb +/- 9.3e+30 fb (muR, muF unc.: +20.7% -15.6%)
+<MATRIX-RESULT> -------------------------------------------------------------
+<MATRIX-RESULT> This result is very inaccurate and only a rough estimate!
+<MATRIX-RESULT> Wait until the main run finishes to get the final result!
+

@@ -1,0 +1,17 @@
+
+                    /--------------------------------------------------\
+                    |                Final result for:                 |
+                    |      p p --> e^- e^- e^+ e^+   @ 13 TeV LHC      |
+                    \--------------------------------------------------/
+
+<MATRIX-RESULT> 1 separate run was made
+
+                #--------\
+                # LO-run |
+                #--------/
+<MATRIX-RESULT> PDF: NNPDF31_lo_as_0118
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> -------------------------------------------------------------
+<MATRIX-RESULT> LO:    113.1 fb +/- 0.1 fb     (muR, muF unc.: +11.5% -12.0%)
+<MATRIX-RESULT> -------------------------------------------------------------
+

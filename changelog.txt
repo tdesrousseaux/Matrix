@@ -1,0 +1,202 @@
+This is the release changelog of MATRIX
+
+version 1.0.0.beta1 (June 2016):
+--------------------------------
+First stable and released beta version, to be tested and used by a 
+closed (dedicated) group of people.
+
+version 1.0.0.beta2 (July 2016):
+--------------------------------
+- separate python class for adding further cluster support added
+- LSF cluster (eg, lxplus) support added
+- condor cluster (eg, ingrid CP3 Louvain) support added
+- small bug fixes
+- changelog.txt added
+
+version 1.0.0.beta3 (October 2016):
+-----------------------------------
+- qsub Torque cluster (OpenPBS) support added
+- C++ executable removed when cleaning process
+- small bug fixes
+
+version 1.0.0.beta4 (Februrary 2017):
+-------------------------------------
+- new submission system
+- cluster support improved
+- small bug fixes
+
+version 1.0.0.release_candidate (April 2017):
+---------------------------------------------
+- renewed C++ code completely
+- easier access to particles in C++ code => easier definition 
+  of cuts/distributions/scales, possibility to define own particles
+- Sun Grid Engine (SGE) cluster support added
+- added CKM W-production processes 
+- full list of processes now working properly with correct results
+- added extrapolation for qT-subtraction error
+- switch for photon processes to increase accuracy
+- logfile of output written for all runs now into log/run_XX.log
+- automatic citation, all citations up to date now in CITATION.bib
+- manual renewed, work in progress
+- many small process-dependent and independent refinements
+
+version 1.0.0.release_candidate2 (May 2017):
+--------------------------------------------
+- added lxplus version of HTCondor (initialdir not allowed)
+- fixed bug to use equal signs within quotes in inputs
+- added on-shell W production with CKM
+- unified all inputs
+- adjusted email adresses
+
+version 1.0.0.release_candidate3 (Aug 2017):
+--------------------------------------------
+- updated input files to all processes
+- added new cuts
+- included Zrec user particles
+
+version 1.0.0.release_candidate4 (Aug 2017):
+--------------------------------------------
+- made code compatible with LHAPDF 6.2.0
+- added CXXFLAGS option -std=c++11
+- changed isnan/isinf to std::isnan/std::isinf
+  (compatible with c++11)
+
+version 1.0.0 (Nov 2017):
+-------------------------
+- refined all input files
+- added check wether name of distribution is used twice
+- added new scales and cuts for some processes
+- updated pre-defined particles for WZ and ZZ (DF and SF)
+- added extrapolation procedure for rcut of total rate
+- refined on-screen output of results to includee extrapolation
+- added WW on-shell amplitudes
+- cleaning through matrix script includes 2-loop MATRIX file now
+- many unused parts of the code removed (EW files, etc...)
+- reading N_decoupled now from LHAPDF routine (default setting 
+  for some PDFs in LHAPDF5 which are not properly configured)
+- several changes to avoid compiler warnings
+- W production with CKM (ppw01,ppwx01,ppexne02,ppenex02) now default
+- renamed src-MUNICH to src and src-external to external
+- removed (not yet working) pT resummation options from compilation
+- added MATRIX usage agreement to compilation to make the user 
+  aware of external codes and computations used by MATRIX
+- reduced log output of jobs
+- certain general stability improvements and bug fixes
+
+version 1.0.1 (Jun 2018):
+-------------------------
+- fixed bug on mac for openloops.cfg
+- fixed typo/bug in ppemxnmnex04 (WW DF) input replacing "lep"-->"e"
+- fixed bug when doing only NNLO run and loop-induced that not 
+  NLO+gg distributions are generated
+- fixed bug when cluster submission ID not readable to retry
+- fixed outdated particle used in arXiv distribution.dat of SF WZ
+- added extra inputs used for result in papers into arXiv folders
+- updated references in CITATION.bib file (ZZ 2l2nu/4l paper added)
+- updated inputs for ZZ/WW->2l2nu processes
+- updated manual accordingly
+- updated manual to include final changes of journal publication
+
+version 1.0.2 (Nov 2018):
+-------------------------
+- adapted OpenLoops download to their new git repository
+- fixed Problem in the newest OpenLoops version with quad precision
+
+version 1.0.3 (Apr 2019):
+-------------------------
+- adapted OpenLoops amplitude download to their new library names
+
+version 1.0.4 (Jun 2020):
+-------------------------
+- version corresponding to MATRIX+RadISH reslease v1.0.0
+- added missing scale for ppeeexex04 and ppemexmx04
+- added new cuts for ppeexa03 corresponding to ne ATLAS analysis
+- modified MATRIX logo
+- removed unneccessary muon cuts from WZ
+
+version 1.0.5 (Nov 2020):
+-------------------------
+- version corresponding to MATRIX+RadISH release v1.0.1
+  (no actual fixes/updates; only added a couple of cuts)
+
+version 2.0.0.beta1 (Jun 2020):
+-------------------------------
+- added NLO EW corrections for DY and and massive diboson processes
+- added NLO gg corrections for ZZ and WW processes
+- new inputs for NLO EW, NLO gg (switches, photon recombination, ...)
+- new syntax for directly adding fiducial cuts in paramter.dat
+- implemented option to enhance statistics in tail of distributionss
+
+version 2.0.0.release_candidate 1 (Aug 2020):
+---------------------------------------------
+- first version with C++ code corresponding to final v2 release
+- fixed runtime determination of lower-order contributions
+- some bug fixes
+
+version 2.0.0.release_candidate 2 (Mar 2021):
+---------------------------------------------
+- code frozen (modulo bug fixes) to final Matrix v2 release
+- funcionality of all processes tested (not working: EW in charged DY)
+- further bug fixes
+
+version 2.0.0.release_candidate 3 (Mai 2021):
+---------------------------------------------
+- code updated again to newest develop stage for final Matrix v2 release
+- funcionality of all processes tested
+- EW corrections for charged DY fully implemented with 2 approximations:
+  trivial ckm in 1-loop EW amplitude; trivial ckm in entire EW correction
+  (implemented switch in input file)
+- runtimes of tail enhancement runs now determined and used
+- fixed inefficiency in grid generation in on-shell ZZ region of llnunu
+  process (for WW-type off-shell contributions)
+- added folder structure for ww and zz amp compilation
+- doing additive EW matching when LO vanishes
+
+version 2.0.0 (Jun 2021):
+-------------------------
+- finalized everything for v2 release
+- added supplementary manual that describes new features in Matrix v2
+- created reference results for all processes, contributions in manual
+- added possibility to run on local scratch of the cluster nodes
+- removed photon-jet-R-ratio from photon recombination inputs
+
+version 2.0.1 (Feb 2022):
+-------------------------
+- fixed bug in photon recombination that affected leptons with a
+  rapidity above 3
+
+version 2.1.0.beta1 (Mar 2022):
+-------------------------------
+- added triphoton (ppaaa03) and top-quark pair (ppttx20) production
+- included linear power corrections through recoil (switch in input)
+- included bin-wise extrapolation of r_cut (switch in input)
+- included TSV scale variation (needed for last two features; will
+  replace CV scale variation in future)
+- added double-differential distributions (dddistribution.dat), not
+  working with TSV (yet)
+- Python 3 compatibility added (not fully tested in all parts of the code)
+
+version 2.1.0.beta2 (Jul 2022):
+-------------------------------
+- fixed bug in local runs/result combination due to decoding in python2
+- fixed problem in runtime extrapolation for power corrections
+- added transverse mass cut to off-shell charged-current Drell-Yan
+- added extra lepton rapidity cuts for neutral-current Drell-Yan
+
+version 2.1.0 (Feb 2023):
+-------------------------
+- phase space parameterization has been improved and the format changed
+- grid run times have been increased in certain cases when needed
+- default settings in input files have been updated
+- major fixes for NLO gg contribution (stability in real and scale in virtual)
+- some fixes have been implemented for the calculation of power corrections
+- fixed bug in result combination for the last multiplicative QCD-EW combination
+  (NNLOqq.QCDxNLOqq.EW+NLOa+NLOgg)
+- fixed bug in multicore mode
+- allowing LHAPDF_PATH to be colon separated
+- switched completely to TSV scale variation (CV scale variation deprecated)
+- some changes in default output format (due to using TSV scale variation)
+- fixed double-differential distributions (now example file for each process)
+- removed pause in code (user interaction required) when runnning with continue
+- Python 3 compatibility fully tested
+- updated supplementary manual of MATRIX version 2 with all features of v2.1

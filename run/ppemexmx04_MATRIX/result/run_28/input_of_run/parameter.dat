@@ -1,0 +1,227 @@
+##########################
+# MATRIX input parameter #
+##########################
+
+#----------------------\
+# General run settings |
+#----------------------/
+process_class     =  pp-emmumepmup+X  #  process id
+E                 =  6500.     #  energy per beam
+coll_choice       =  1         #  (1) PP collider; (2) PPbar collider
+photon_induced    =  0         #  switch to turn on (1) and off (0) photon-induced contributions
+switch_off_shell  =  0         #  switch for effective integration for off-shell Z bosons (eg, Higgs analysis)
+enhance_tails     =  1         #  switch to improve statistics in tail of distributions (a factor of two slower)
+
+
+#----------------\
+# Scale settings |
+#----------------/
+scale_ren         =  91.1876   #  renormalization (muR) scale
+scale_fact        =  91.1876   #  factorization (muF) scale
+dynamic_scale     =  1         #  dynamic ren./fac. scale
+                               #  0: fixed scale above
+                               #  1: invariant mass (Q) of system (of the colourless final states)
+                               #  2: transverse mass (mT^2=Q^2+pT^2) of system (of the colourless final states)
+                               #  3: geometric average of Z-boson transverse masses:
+                               #     sqrt(mT_Z1 * mT_Z2)
+                               #  4: sum of Z-boson transverse masses computed with their pole masses:
+                               #     sqrt(M_Z^2+pT_ee^2)+sqrt(M_Z^2+pT_mumu^2)
+                               #  5: sum of Z-boson transverse masses:
+                               #     sqrt(M_Z1^2+pT_Z1^2)+sqrt(M_Z1^2+pT_Z2^2)
+factor_central_scale = 1       #  relative factor for central scale (important for dynamic scales)
+scale_variation   =  1         #  switch for muR/muF uncertainties (0) off; (1) 7-point (default); (2) 9-point variation
+variation_factor  =  2         #  symmetric variation factor; usually a factor of 2 up and down (default)
+
+
+#------------------------------\
+# Order-dependent run settings |
+#------------------------------/
+# LO-run
+run_LO             =  0        #  switch for LO cross section (1) on; (0) off
+LHAPDF_LO          =  NNPDF31_lo_as_0130  #  LO LHAPDF set
+PDFsubset_LO       =  0        #  member of LO PDF set
+precision_LO       =  1.e-3    #  precision of LO cross section
+
+# NLO-run
+run_NLO_QCD        =  0        #  switch for NLO QCD cross section (1) on; (0) off
+run_NLO_EW         =  0        #  switch for NLO EW cross section (1) on; (0) off 
+LHAPDF_NLO         =  NNPDF31_lo_as_0130  #  NLO LHAPDF set
+PDFsubset_NLO      =  0        #  member of NLO PDF set
+precision_NLO_QCD  =  1.e-3    #  precision of NLO QCD cross section
+precision_NLO_EW   =  1.e-3    #  precision of NLO EW correction
+NLO_subtraction_method = 1     #  switch to use (2) qT subtraction (1) Catani-Seymour at NLO
+
+# NNLO-run
+run_NNLO_QCD       =  1        #  switch for NNLO QCD cross section (1) on; (0) off 
+add_NLO_EW         =  0        #  switch to add NLO EW cross section to NNLO run (1) on; (0) off
+                               #  note: can be added only if also running NNLO
+LHAPDF_NNLO        =  NNPDF31_lo_as_0130  #  NNLO LHAPDF set
+PDFsubset_NNLO     =  0        #  member of NNLO PDF set
+precision_NNLO_QCD =  1.e-2    #  precision of NNLO QCD cross section
+precision_added_EW =  1.e-2    #  precision of NLO EW correction in NNLO run
+loop_induced       =  -2        #  switch for loop-induced gg (with NNLO settings): (0) off;
+                               #   (1) LO [NNLO contribution];   (2) NLO [N3LO contribution]
+                               #  (-1) only loop-induced gg LO; (-2) only loop-induced gg NLO  (run_NNLO_QCD=1 required!)
+power_corrections  =  0        #  switch to include leading power corrections in qT-subtraction through recoil
+                               #  (not recommended for processes involving photons and heavy quarks)
+power_corrections_pT0 = 25.    #  characteristic transverse momentum pT0 used to optimise the generation
+                               #  of the phase space for the integration of the power corrections. It should be set
+                               #  to the minimum requirement on the transverse momentum of the 2-body final state
+                               #  (for Drell-Yan for instance this should be the minimum transverse momentum of the leptons)
+extrapolate_binwise = 0        #  switch for bin-wise r_cut extrapolation of distributions
+                               #  (note: increases written output for distributions by factor of 8)
+
+
+#----------------------------\
+# Settings for fiducial cuts |
+#----------------------------/
+# Jet algorithm
+jet_algorithm = 3              #  (1) Cambridge-Aachen (2) kT (3) anti-kT
+jet_R_definition = 0           #  (0) pseudo-rapidity (1) rapidity
+jet_R = 0.5                    #  DeltaR
+
+# Photon recombination (lepton dressing)
+photon_recombination = 0       #  switch for photon recombination (1) on; (0) off; must be on for EW runs
+photon_R_definition = 0        #  (0) pseudorap; (1) rapidity
+photon_R = 0.1                 #  DeltaR: photon combined with charged particle when inside this radius
+
+# Jet cuts
+define_pT jet = 15.            #  requirement on jet transverse momentum (lower cut)
+define_eta jet = 99           #  requirement on jet pseudo-rapidity (upper cut)
+define_y jet = 1.e99           #  requirement on jet rapidity (upper cut)
+n_observed_min jet = 0         #  minimal number of observed jets (with cuts above)
+n_observed_max jet = 99        #  maximal number of observed jets (with cuts above)
+
+# Lepton cuts
+define_pT lep = 3.             #  requirement on lepton transverse momentum (lower cut)
+define_eta lep = 99         #  requirement on lepton pseudo-rapidity (upper cut)
+define_y lep = 1.e99           #  requirement on lepton rapidity (upper cut)
+n_observed_min lep = 0         #  minimal number of observed leptons (with cuts above)
+n_observed_max lep = 99        #  maximal number of observed leptons (with cuts above)
+
+# Electron cuts
+define_pT e = 0.               #  requirement on electron transverse momentum (lower cut)
+define_eta e = 99.              #  requirement on electron pseudo-rapidity (upper cut)
+define_y e = 1.e99             #  requirement on electron rapidity (upper cut)
+n_observed_min e = 2           #  minimal number of observed electrons (with cuts above)
+n_observed_max e = 99          #  maximal number of observed electrons (with cuts above)
+
+# Muon cuts
+define_pT mu = 0.             #  requirement on muon transverse momentum (lower cut)
+define_eta mu = 99.            #  requirement on muon pseudo-rapidity (upper cut)
+define_y mu = 1.e99            #  requirement on muon rapidity (upper cut)
+n_observed_min mu = 2          #  minimal number of observed muons (with cuts above)
+n_observed_max mu = 99         #  maximal number of observed muons (with cuts above)
+
+# Negatively-charged lepton cuts
+define_pT lm = 0.              #  requirement on negatively-charged lepton transverse momentum (lower cut)
+define_eta lm = 1.e99          #  requirement on negatively-charged lepton pseudo-rapidity (upper cut)
+define_y lm = 1.e99            #  requirement on negatively-charged lepton rapidity (upper cut)
+n_observed_min lm = 0          #  minimal number of observed negatively-charged leptons (with cuts above)
+n_observed_max lm = 99         #  maximal number of observed negatively-charged leptons (with cuts above)
+
+# Positively-charged lepton cuts
+define_pT lp = 0.              #  requirement on positively-charged lepton transverse momentum (lower cut)
+define_eta lp = 1.e99          #  requirement on positively-charged lepton pseudo-rapidity (upper cut)
+define_y lp = 1.e99            #  requirement on positively-charged lepton rapidity (upper cut)
+n_observed_min lp = 0          #  minimal number of observed positively-charged leptons (with cuts above)
+n_observed_max lp = 99         #  maximal number of observed positively-charged leptons (with cuts above)
+
+####################
+# User-defined cuts
+# (only used if defined in 'MATRIX/prc/$process/user/specify.cuts.cxx')
+#
+user_switch M_Zrec = 1                  #  switch for invariant mass cut on reconstructed Z-bosons (OSSF lepton pairs)
+user_cut min_M_Zrec = 4.0               #  requirement on reconstructed Z-boson invariant mass (lower cut)
+user_cut max_M_Zrec = 14000.              #  requirement on reconstructed Z-boson invariant mass (upper cut)
+user_cut min_M_Z1 = 0.                  #  requirement on primary Z-boson (with smaller |m(lm,lp) - M_Z|) (lower cut)
+user_cut max_M_Z1 = 1.e99               #  requirement on primary Z-boson (with smaller |m(lm,lp) - M_Z|) (upper cut)
+
+user_switch R_leplep = 0                #  switch to turn on (1) and off (0) cuts on lepton-lepton separation
+user_cut min_R_leplep = 0.2             #  requirement on lepton-lepton separation in y-phi-plane (lower cut)
+
+user_switch lepton_cuts = 0             #  switch to turn on cuts on leptons
+user_cut min_pT_lep_1st = 0.            #  requirement on hardest lepton transverse momentum (lower cut)
+user_cut max_eta_lep_1st = 1.e99        #  requirement on hardest lepton pseudo-rapidity (upper cut)
+user_cut min_pT_lep_2nd = 0.            #  requirement on second-hardest lepton transverse momentum (lower cut)
+user_cut max_eta_lep_2nd = 1.e99        #  requirement on second-hardest lepton pseudo-rapidity (upper cut)
+user_cut min_pT_lep_3rd = 0.            #  requirement on third-hardest lepton transverse momentum (lower cut)
+user_cut max_eta_lep_3rd = 1.e99        #  requirement on third-hardest lepton pseudo-rapidity (upper cut)
+user_cut min_pT_lep_4th = 0.            #  requirement on fourth-hardest lepton transverse momentum (lower cut)
+user_cut max_eta_lep_4th = 1.e99        #  requirement on fourth-hardest lepton pseudo-rapidity (upper cut)
+user_cut extra_eta_lep = 1.e99          #  additional requirement on lepton pseudo-rapidity (upper cut)
+user_int n_observed_min_lep_extra = 0   #  minimal number of observed leptons with additional requirement (with cuts above)
+user_int n_observed_max_lep_extra = 99  #  maximal number of observed leptons with additional requirement (with cuts above)
+
+user_switch electron_cuts = 0           #  switch to turn on cuts on electrons (comming from Z-boson)
+user_cut min_pT_e_1st = 0.              #  requirement on hardest electron transverse momentum (lower cut)
+user_cut max_eta_e_1st = 1.e99          #  requirement on hardest electron pseudo-rapidity (upper cut)
+user_cut min_pT_e_2nd = 0.              #  requirement on second-hardest electron transverse momentum (lower cut)
+user_cut max_eta_e_2nd = 1.e99          #  requirement on second-hardest electron pseudo-rapidity (upper cut)
+user_cut extra_eta_e = 2.5              #  additional requirement on electron pseudo-rapidity (upper cut)
+user_int n_observed_min_e_extra = 1     #  minimal number of observed electrons with additional requirement (with cuts above)
+user_int n_observed_max_e_extra = 99    #  maximal number of observed electrons with additional requirement (with cuts above)
+
+user_switch muon_cuts = 0               #  switch to turn on cuts on muons (comming from Z-boson)
+user_cut min_pT_mu_1st = 0.             #  requirement on hardest muon transverse momentum (lower cut)
+user_cut max_eta_mu_1st = 1.e99         #  requirement on hardest muon pseudo-rapidity (upper cut)
+user_cut min_pT_mu_2nd = 0.             #  requirement on second-hardest muon transverse momentum (lower cut)
+user_cut max_eta_mu_2nd = 1.e99         #  requirement on second-hardest muon pseudo-rapidity (upper cut)
+user_cut extra_eta_mu = 1.e99           #  additional requirement on muon pseudo-rapidity (upper cut)
+user_int n_observed_min_mu_extra = 0    #  minimal number of observed muons with additional requirement (with cuts above)
+user_int n_observed_max_mu_extra = 99   #  maximal number of observed muons with additional requirement (with cuts above)
+
+user_switch M_4lep = 1                  #  switch to turn on (1) and off (0) cuts on invariant of 4-lepton system
+user_cut min_M_4lep = 4.              #  requirement on invariant mass of 4-lepton system (lower cut)
+user_cut max_M_4lep = 14000.              #  requirement on invariant mass of 4-lepton system (upper cut)
+user_cut min_delta_M_4lep = 0.       #  minimal difference of 4-lepton invariant mass to PDG Z mass
+user_cut max_delta_M_4lep = 1.e99          #  maximal difference of 4-lepton invariant mass to PDG Z mass
+
+user_switch lep_iso = 0                 #  switch to turn on (1) and off (0) isolation between leptons
+user_cut lep_iso_delta_0 = 0.4          #  lepton isolation cone size
+user_cut lep_iso_epsilon = 0.4          #  lepton isolation threshold ratio
+
+####################
+# Fiducial cuts
+# (defined via general interface)
+#
+#fiducial_cut = 66. < M Zrec < 116.               #  invariant-mass cut on reconstructed Z bosons
+#fiducial_cut = dReta lep lep > 0.2               #  lepton-lepton separation in eta-phi-plane
+#fiducial_cut = dReta e e > 0.0                   #  electron-electron separation in eta-phi-plane
+#fiducial_cut = dReta mu mu > 0.0                 #  muon-muon separation in eta-phi-plane
+#fiducial_cut = dReta e mu > 0.0                  #  muon-electron separation in eta-phi-plane
+#fiducial_cut = pT lep (1) > 7.                   #  transverse-momentum cut on hardest lepton
+#fiducial_cut = |eta| lep (1) < 2.7               #  pseudo-rapidity cut on hardest lepton
+#fiducial_cut = pT lep (2) > 7.                   #  transverse-momentum cut on second-hardest lepton
+#fiducial_cut = |eta| lep (2) < 2.7               #  pseudo-rapidity cut on second-hardest lepton
+#fiducial_cut = pT lep (3) > 7.                   #  transverse-momentum cut on third-hardest lepton
+#fiducial_cut = |eta| lep (3) < 2.7               #  pseudo-rapidity cut on third-hardest lepton
+#fiducial_cut = pT lep (4) > 7.                   #  transverse-momentum cut on fourth-hardest lepton
+#fiducial_cut = |eta| lep (4) < 2.7               #  pseudo-rapidity cut on fourth-hardest lepton
+#fiducial_cut = pT e (1) > 7.                     #  transverse-momentum cut on hardest electron
+#fiducial_cut = |eta| e (1) < 2.7                 #  pseudo-rapidity cut on hardest electron
+#fiducial_cut = pT e (2) > 7.                     #  transverse-momentum cut on second-hardest electron
+#fiducial_cut = |eta| e (2) < 2.7                 #  pseudo-rapidity cut on second-hardest electron
+#fiducial_cut = pT mu (1) > 7.                    #  transverse-momentum cut on hardest muon
+#fiducial_cut = |eta| mu (1) < 2.7                #  pseudo-rapidity cut on hardest muon
+#fiducial_cut = pT mu (2) > 7.                    #  transverse-momentum cut on second-hardest muon
+#fiducial_cut = |eta| mu (2) < 2.7                #  pseudo-rapidity cut on second-hardest muon
+#fiducial_cut = 120. < M lep lep lep lep < 130.   #  invariant-mass cut on 4-lepton system
+
+
+#-----------------\
+# MATRIX behavior |
+#-----------------/
+max_time_per_job = 12          #  very rough time(hours) one main run job shall take (default: 24h)
+                               #  unreliable when < 1h, use as tuning parameter for degree of parallelization
+                               #  note: becomes ineffective when job number > max_nr_parallel_jobs
+                               #        which is set in MATRIX_configuration file
+switch_distribution = 1        #  switch to turn on (1) and off (0) distributions
+save_previous_result = 1       #  switch to save previous result of this run (in result/"run"/saved_result_$i)
+save_previous_log = 0          #  switch to save previous log of this run (in log/"run"/saved_result_$i)
+#include_pre_in_results = 0     #  switch to (0) only include main run in results; (1) also all extrapolation (pre) runs;
+                               #  crucial to set to 0 if re-running main with different inputs (apart from precision)
+                               #  note: if missing (default) pre runs used if important for precision
+                               #  (separately for each contribution)
+reduce_workload = 0            #  switch to keep full job output (0), reduce (1) or minimize (2) workload on slow clusters
+random_seed = 0                #  specify integer value (grid-/pre-run reproducible)

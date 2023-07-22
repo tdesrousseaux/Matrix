@@ -1,0 +1,42 @@
+
+                    /--------------------------------------------------\
+                    |                Final result for:                 |
+                    |    p p --> e^- mu^- e^+ mu^+   @ 13.6 TeV LHC    |
+                    \--------------------------------------------------/
+
+<MATRIX-RESULT> 2 separate runs were made
+
+                #--------\
+                # LO-run |
+                #--------/
+<MATRIX-RESULT> PDF: NNPDF31_nlo_as_0118_luxqed
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> ----------------------------------------------------------------
+<MATRIX-RESULT> LO qq:    42.24 fb +/- 0.035 fb   (muR, muF unc.:  +9.9% -11.0%)
+<MATRIX-RESULT> ----------------------------------------------------------------
+<MATRIX-RESULT> LO aa:   0.3603 fb +/- 0.0018 fb  (muR, muF unc.: +21.6% -19.0%)
+<MATRIX-RESULT> ----------------------------------------------------------------
+<MATRIX-RESULT> LO:       42.60 fb +/- 0.036 fb   (muR, muF unc.: +10.0% -11.1%)
+<MATRIX-RESULT> ----------------------------------------------------------------
+
+                #---------\
+                # NLO-run |
+                #---------/
+<MATRIX-RESULT> PDF: NNPDF31_nlo_as_0118_luxqed
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> --------------------------------------------------------------------------------
+<MATRIX-RESULT> LO qq:                    42.27 fb +/- 0.018 fb   (muR, muF unc.:  +9.9% -11.0%)
+<MATRIX-RESULT> NLO.QCD qq:               54.15 fb +/- 0.042 fb   (muR, muF unc.:  +2.6%  -3.7%)
+<MATRIX-RESULT> NLO.EW qq:                40.97 fb +/- 0.032 fb   (muR, muF unc.: +10.1% -11.1%)
+<MATRIX-RESULT> --------------------------------------------------------------------------------
+<MATRIX-RESULT> LO aa:                   0.3602 fb +/- 0.0013 fb  (muR, muF unc.: +21.6% -19.0%)
+<MATRIX-RESULT> NLO.EW aa+ax+xa:         0.2533 fb +/- 0.0061 fb  (muR, muF unc.:  +5.4%  -8.6%)
+<MATRIX-RESULT> --------------------------------------------------------------------------------
+<MATRIX-RESULT> LO:                       42.63 fb +/- 0.018 fb   (muR, muF unc.: +10.0% -11.1%)
+<MATRIX-RESULT> NLO.QCD:                  54.51 fb +/- 0.042 fb   (muR, muF unc.:  +2.6%  -3.8%)
+<MATRIX-RESULT> NLO.EW:                   41.22 fb +/- 0.033 fb   (muR, muF unc.:  +10.0% -11.0%)
+<MATRIX-RESULT> NLO.QCD+NLO.EW:           53.10 fb +/- 0.05 fb    (muR, muF unc.:  +2.6%  -3.5%)
+<MATRIX-RESULT> NLO.QCDxNLO.EW:           52.71 fb +/- 0.054 fb   (muR, muF unc.:  +2.6%  -3.7%)
+<MATRIX-RESULT> NLO.QCDxNLOqq.EW+NLOa:    52.74 fb +/- 0.054 fb   (muR, muF unc.:  +2.6%  -3.8%)
+<MATRIX-RESULT> --------------------------------------------------------------------------------
+

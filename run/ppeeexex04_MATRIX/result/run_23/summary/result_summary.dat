@@ -1,0 +1,20 @@
+
+                    /--------------------------------------------------\
+                    |               Pre-run result for:                |
+                    |     p p --> e^- e^- e^+ e^+   @ 13.6 TeV LHC     |
+                    \--------------------------------------------------/
+
+                #---------\
+                # NLO-run |
+                #---------/
+<MATRIX-RESULT> PDF: NNPDF31_nnlo_hessian_pdfas
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> -------------------------------------------------------------------------
+<MATRIX-RESULT> LO:                127.9 fb +/- 0.63 fb    (muR, muF unc.: +11.7% -12.5%)
+<MATRIX-RESULT> NLO.QCD:           148.7 fb +/- 0.74 fb    (muR, muF unc.:  +2.6%  -4.5%)
+<MATRIX-RESULT> NLO.EW:            120.2 fb +/- 0.78 fb    (muR, muF unc.: +11.7% -12.5%)
+<MATRIX-RESULT> NLO.QCD+NLO.EW:    141.0 fb +/- 0.87 fb    (muR, muF unc.:  +2.1%  -4.1%)
+<MATRIX-RESULT> -------------------------------------------------------------------------
+<MATRIX-RESULT> This result is very inaccurate and only a rough estimate!
+<MATRIX-RESULT> Wait until the main run finishes to get the final result!
+

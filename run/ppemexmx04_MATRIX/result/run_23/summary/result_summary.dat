@@ -1,0 +1,30 @@
+
+                    /--------------------------------------------------\
+                    |                Final result for:                 |
+                    |    p p --> e^- mu^- e^+ mu^+   @ 13.6 TeV LHC    |
+                    \--------------------------------------------------/
+
+<MATRIX-RESULT> 1 separate run was made
+
+                #----------\
+                # NNLO-run |
+                #----------/
+<MATRIX-RESULT> PDF: NNPDF31_nnlo_hessian_pdfas
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> -----------------------------------------------------------------------------------------
+<MATRIX-RESULT> LO:                                303.7 fb +/- 0.73 fb    (muR, muF unc.: +13.3% -13.8%)
+<MATRIX-RESULT> NLO.QCD:                           333.1 fb +/- 0.83 fb    (muR, muF unc.:  +2.2%  -4.5%)
+<MATRIX-RESULT> NLO.EW:                            283.8 fb +/- 1.5 fb     (muR, muF unc.: +13.2% -13.7%)
+<MATRIX-RESULT> NLO.QCD+NLO.EW:                    313.2 fb +/- 1.6 fb     (muR, muF unc.:  +1.4%  -3.7%)
+<MATRIX-RESULT> NLO.QCDxNLO.EW:                    311.3 fb +/- 1.7 fb     (muR, muF unc.:  +2.1%  -4.3%)
+<MATRIX-RESULT> NNLO.QCD:
+<MATRIX-RESULT>  -- qT subtr. cut r_cut=0.0015:    345.8 fb +/- 10 fb      (muR, muF unc.:  +0.9%  -1.8%)
+<MATRIX-RESULT>  -- extrapolated to r_cut=0:       341.4 fb +/- 13 fb      (muR, muF unc.:  +1.2%  -2.1%)
+<MATRIX-RESULT> NNLO.QCD+NLO.EW:
+<MATRIX-RESULT>  -- qT subtr. cut r_cut=0.0015:    325.9 fb +/- 10 fb      (muR, muF unc.:  +1.0%  -0.9%)
+<MATRIX-RESULT>  -- extrapolated to r_cut=0:       321.5 fb +/- 14 fb      (muR, muF unc.:  +0.6%  -1.2%)
+<MATRIX-RESULT> NNLO.QCDxNLO.EW:
+<MATRIX-RESULT>  -- qT subtr. cut r_cut=0.0015:    323.1 fb +/- 9.8 fb     (muR, muF unc.:  +0.9%  -1.6%)
+<MATRIX-RESULT>  -- extrapolated to r_cut=0:       319.0 fb +/- 13 fb      (muR, muF unc.:  +1.1%  -1.9%)
+<MATRIX-RESULT> -----------------------------------------------------------------------------------------
+

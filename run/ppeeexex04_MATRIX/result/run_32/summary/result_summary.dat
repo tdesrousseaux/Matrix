@@ -1,0 +1,18 @@
+
+                    /--------------------------------------------------\
+                    |                Final result for:                 |
+                    |      p p --> e^- e^- e^+ e^+   @ 13 TeV LHC      |
+                    \--------------------------------------------------/
+
+<MATRIX-RESULT> 1 separate run was made
+
+                #----------\
+                # NNLO-run |
+                #----------/
+<MATRIX-RESULT> PDF: NNPDF31_lo_as_0130
+<MATRIX-RESULT> Total rate (possibly within cuts):
+<MATRIX-RESULT> ---------------------------------------------------------------------
+<MATRIX-RESULT> LO gg:         3.910 fb +/- 0.04 fb    (muR, muF unc.: +27.0% -19.1%)
+<MATRIX-RESULT> NLO.QCD gg:    7.026 fb +/- 0.48 fb    (muR, muF unc.: +15.1% -13.3%)
+<MATRIX-RESULT> ---------------------------------------------------------------------
+

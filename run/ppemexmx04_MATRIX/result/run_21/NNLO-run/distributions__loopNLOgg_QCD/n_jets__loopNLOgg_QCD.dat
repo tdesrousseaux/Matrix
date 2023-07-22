@@ -1,0 +1,4 @@
+#  left-edge  right-edge       scale-central  central-error        scale-min      min-error        scale-max      max-error      rel-down     rel-up
+           0           1           8.5951565       0.677648        7.6214835       0.513613        9.6796545       0.926377       -11.33%     12.62%
+           1           2           3.3954796       0.253328        2.4686698       0.186062        4.7897529       0.352901       -27.30%     41.06%
+           2           3                   0              0                0              0                0              0            0%         0%
